@@ -1,4 +1,5 @@
-[![Build Status](https://secure.travis-ci.org/sunng87/cljts.png)](http://travis-ci.org/sunng87/cljts)
+[![Build Status](https://secure.travis-ci.org/diogok/cljts.png)](http://travis-ci.org/diogok/cljts) 
+[![Dependency Status](https://www.versioneye.com/user/projects/53fbb5fce09da390480006c7/badge.png)](https://www.versioneye.com/user/projects/53fbb5fce09da390480006c7)
 
 # cljts
 
@@ -17,7 +18,7 @@ includes:
 
 ### Leiningen 
 
-    [cljts "0.2.0"]
+    [diogok/cljts "0.4.0"]
 
 ### API
 
@@ -113,6 +114,7 @@ Affine transformations:
 
 * [Alexey Pushkin](https://github.com/bapehbe)
 * [Bartosz Radaczyński](https://github.com/radaczynski)
+* [Diogok](https://github.com/diogok)
 
 ## License
 
