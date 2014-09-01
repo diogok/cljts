@@ -67,3 +67,10 @@
 (fact
  (let [coord (c (rand) (rand))]
    (identity-transformation coord) => coord))
+
+(fact 
+    (reproject (point (c 17.992731 -76.792009)) "EPSG:4326" "EPSG:3857" )
+    =>  (point (c -8548447.338872481 2036697.7386319933))
+    (reproject (point (c 17.992731 -76.792009)) "EPSG:4326" "EPSG:23032" )
+    =>  (point (c -12518567.612141093 8123169.264076659))
+    )

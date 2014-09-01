@@ -1,6 +1,8 @@
 (ns cljts.transform
   "Affine transformations"
   (:use [cljts.geom :only [c]])
+  (:import [org.geotools.geometry.jts JTS])
+  (:import [org.geotools.referencing CRS])
   (:import [com.vividsolutions.jts.geom.util
             AffineTransformation AffineTransformationFactory]
            [com.vividsolutions.jts.geom Coordinate Geometry]))
@@ -59,3 +61,10 @@
   "Identity transformation"
   (let [identity-tr (.setToIdentity (AffineTransformation.))]
     ((transformation-fn identity-tr) this)))
+
+(defn reproject
+  ""
+  [^Geometry feature source target]
+  (JTS/transform feature
+   (CRS/findMathTransform (CRS/decode source) (CRS/decode target))))
+
