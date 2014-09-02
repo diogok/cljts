@@ -93,6 +93,14 @@ Serialize geometry objects to Well-Known Text and Well-Known Binary format:
 (read-wkt some-reader)
 ```
 
+Reprojection:
+
+```clojure
+(use 'cljts.transform)
+(def projected
+ (reproject (point (c 10.10 20.20)) "EPSG:4326" "EPSG:23032"))
+```
+
 Affine transformations:
 
 ```clojure
