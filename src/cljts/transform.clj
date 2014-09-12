@@ -66,5 +66,12 @@
   ""
   [^Geometry feature source target]
   (JTS/transform feature
-   (CRS/findMathTransform (CRS/decode source) (CRS/decode target))))
+   (CRS/findMathTransform (CRS/decode source true) (CRS/decode target true))))
+
+(defn utmzone
+  ""
+  [^Geometry geom] 
+   (let [coords (.getCoordinate geom)
+         pref (if (> (.y coords) 0) 32600 32700) ]
+     (str "EPSG:" (+ (inc (int (/ (+ (.x coords) 180) 6))) pref))))
 
