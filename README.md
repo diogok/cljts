@@ -18,7 +18,7 @@ includes:
 
 ### Leiningen 
 
-    [diogok/cljts "0.4.4"]
+    [diogok/cljts "0.4.5"]
 
 ### API
 
