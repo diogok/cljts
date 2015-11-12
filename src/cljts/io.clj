@@ -97,14 +97,14 @@
 (defn read-geojson
   "read geometry object from a reader that contains a geojson text"
   [input & {:keys [decimals]}]
-  (let [reader (GeometryJSON.)]
+  (let [reader (GeometryJSON. 16)]
     (.read reader input)))
 
 (defn write-geojson
   "write geometry as geojson to output"
   ([geo]
-    (let [writer (GeometryJSON.)]
+    (let [writer (GeometryJSON. 16)]
       (.toString writer geo)))
   ([geo output]
-    (let [writer (GeometryJSON.)]
+    (let [writer (GeometryJSON. 16)]
       (.write writer geo output))))
