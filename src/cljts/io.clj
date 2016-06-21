@@ -14,7 +14,8 @@
             ])
   (:import [org.geotools.geojson.geom
             GeometryJSON])
-  )
+  (:import [org.geotools.geojson.feature
+            FeatureJSON]))
 
 (defn read-wkt
   "read geometry object from a reader contains well-known text"
@@ -108,3 +109,16 @@
   ([geo output]
     (let [writer (GeometryJSON. 16)]
       (.write writer geo output))))
+
+(defn read-feature-collection
+  "read feature collection from input stream"
+  [input] 
+  (let [reader (FeatureJSON.)]
+    (.readFeatureCollection reader input)))
+
+(defn read-feature
+  "read feature from input stream"
+  [input] 
+  (let [reader (FeatureJSON.)]
+    (.readFeature reader input)))
+

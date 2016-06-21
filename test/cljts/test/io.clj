@@ -65,3 +65,18 @@
   (let [sr (StringReader. "{\"type\":\"LineString\",\"coordinates\":[[50,20],[40,3]]}")
         geo (read-geojson sr)]
     geo => (line-string [(c 50 20) (c 40 3)])))
+
+(fact
+  (let [gj "{\"type\":\"FeatureCollection\",\"features\":[{\"type\":\"Feature\",\"id\":\"123\",\"properties\":{\"foo\":\"bar\"},\"geometry\": {\"type\":\"LineString\",\"coordinates\":[[50,20],[40,3]]}}]}"
+        fc (read-feature-collection gj)
+        ft (-> fc (.features) (.next))]
+        (->  ft
+          (.getProperty "foo")
+          (.getValue))
+        => "bar"
+        (.getID ft)
+        => "123"
+        (write-geojson (.getDefaultGeometry ft))
+        => "{\"type\":\"LineString\",\"coordinates\":[[50,20],[40,3]]}"
+    ))
+
