@@ -18,7 +18,7 @@ includes:
 
 ### Leiningen 
 
-    [org.clojars.diogok/cljts "0.5.0"]
+[![Clojars Project](https://img.shields.io/clojars/v/org.clojars.diogok/cljts.svg)](https://clojars.org/org.clojars.diogok/cljts)
 
 ### API
 
